@@ -1,0 +1,10 @@
+Plugin 'morhetz/gruvbox'
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'jacoborus/tender.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'othree/yajs.vim'
+Plugin 'zah/nim.vim'
+Plugin 'jakwings/vim-pony'
+Plugin 'flowtype/vim-flow'
+Plugin 'leafgarland/typescript-vim'
+

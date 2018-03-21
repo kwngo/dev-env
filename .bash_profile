@@ -1,8 +1,9 @@
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Trigger ~/.bashrc commands
-eval "$(pyenv init -)"
 export GOPATH=$HOME/go
+export PYENV_ROOT="$HOME/.pyenv"
 PATH="/usr/local/bin:/usr/local/sbin:$PATH:$GOPATH/bin"
+export PATH="$PYENV_ROOT/bin:$PATH"
 . ~/.bashrc
 source $(brew --prefix autoenv)/activate.sh
 alias gg='git grep'
@@ -22,18 +23,23 @@ alias gco='git checkout'
 alias gcob='git checkout -b'
 alias gcot='git checkout -t'
 alias gcotb='git checkout --track -b'
-alias gl='git log --decorate=full'
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative | emojify | less -r "
 alias glp='git log --pretty=format:"%C(yellow) %h %Cgreen%ad%C(red)[%an]%C(cyan)%d %Creset%s" --graph --date=short'
 alias gls='git log -S'
 alias gs='git status'
 alias gst='git stash'
 alias g='git'
+alias cdc='cd ~/code'
 source /Users/kwngo/.pgvm/pgvm_env
-
-export GITAWAREPROMPT=~/.bash/git-aware-prompt
-source "${GITAWAREPROMPT}/main.sh"
-export PS1="\[\033[36m\]\u\[\033[m\] at \[\033[32m\]\h in \[\033[33;1m\]\w\[\033[m\] on $git_branch \n$ "
 export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
+export LSCOLORS=ExFxCxDxBxegedabagacad
 alias ls='ls -GFh'
+alias de='docker exec -it'
+alias weather='curl wttr.in'
+alias todo='todoist --color'
+alias todot='todoist --color l --f "(overdue|today)"'
+# Manpiulates PATH, so place at end of shell script
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
